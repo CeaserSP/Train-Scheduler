@@ -19,39 +19,69 @@
 </head>
 
 <body>
-<div class= "container">
-    <div class= "jumbotron">
-        <h1 id="train-header">Train Schedule</h1>
-        <h2 id="choo-choo">Choo Choo!!</h2>
-    </div>
-    <!-- table -->
-    <div class= "row">
-        <div class= "col-md-12">
-            <div class= "card mb-4">
+    <div class="container">
+        <div class="jumbotron">
+            <h1 id="train-header">Train Schedule</h1>
+            <h2 id="choo-choo">Choo Choo!!</h2>
+        </div>
+        <!-- table -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
                     <div class="card-header">Train Times</div>
                     <div class="card-body">
-                      <table class="table table-sm table-hover" id='train-table'>
-                        <thead>
-                          <tr>
-                            <th scope="col">Train Name</th>
-                            <th scope="col">Destination</th>
-                            <th scope="col">Frequency(min)</th>
-                            <th scope="col">Next Arrival</th>
-                            <th scope="col">Mins Away</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                      </table>
+                        <table class="table table-sm table-hover" id='train-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency(min)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Mins Away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
         </div>
-
     </div>
-</div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Add Train  -->
+            <div class="card mb-4">
+                <div class="card-header">Add Train</div>
+                <div class="card-body">
+
+                    <!-- Train Entry Form -->
+                    <form>
+                        <div class="form-group">
+                            <label for="train-name-input">Train Name</label>
+                            <input class="form-control" id="train-name-input" placeholder="Polar Express" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="destination-input">Destination</label>
+                            <input class="form-control" id="destination-input" placeholder="Atlanata, Ga" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="train-input">First Train Time (HH:MM - miliatary time)</label>
+                            <input class="form-control" id="train-input" placeholder="15:35" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="frequency-input">Frequency</label>
+                            <input class="form-control" id="frequency-input" placeholder="200000" type="text">
+                        </div>
+                        <button class="btn btn-primary float-right" id="add-train-btn">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 
 
 </body>
