@@ -31,6 +31,10 @@ $("#add-train-btn").on("click", function(event) {
     // push to the database
     database.ref().push(newTrain);
     console.log(newTrain);
-    // Clear
-
+    // Clear values
+    $("train-name-input").val("");
+    $("destination-input").val("");
+    $("train-input").val("");
+    $("frequency-input").val("");
 });
+// 
