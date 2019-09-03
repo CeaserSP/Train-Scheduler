@@ -13,7 +13,7 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 // Click event
-$("#add-train-btn").on("click", function (event) {
+$("#add-train-btn").on("click", function(event) {
     event.preventDefault();
     // Input
     var trainName = $("#train-name-input").val().trim();
@@ -27,10 +27,10 @@ $("#add-train-btn").on("click", function (event) {
         destination: trainDestination,
         time: trainTime,
         frequency: trainFrequency,
-    };
+    }
     // push to the database
     database.ref().push(newTrain);
     console.log(newTrain);
     // Clear
-    
+
 });
