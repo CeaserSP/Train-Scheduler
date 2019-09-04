@@ -73,4 +73,7 @@ database.ref().on("child_added", function (childSnapshot) {
     // Next Train
     var nextTrain = moment().add(tMinusTrain, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+
+    // TO DO: Append to table
+    
 });
