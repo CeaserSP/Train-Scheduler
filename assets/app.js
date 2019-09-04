@@ -37,4 +37,13 @@ $("#add-train-btn").on("click", function(event) {
     $("train-input").val("");
     $("frequency-input").val("");
 });
-// 
+// event listener that adds train to database and html
+database.ref().on("child_added", function(childSnapshot) {
+    console.log(childSnapshot.val());
+    // Store childSnapshots into variables
+    var trainName = childSnapshot.val().name;
+    var trainDestination = childSnapshot.val().destination;
+    var trainTime = childSnapshot.val().time;
+    var trainFrequency = childSnapshot.val().frequency;
+
+});
