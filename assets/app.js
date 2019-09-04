@@ -45,5 +45,10 @@ database.ref().on("child_added", function(childSnapshot) {
     var trainDestination = childSnapshot.val().destination;
     var trainTime = childSnapshot.val().time;
     var trainFrequency = childSnapshot.val().frequency;
-
+    // train time converstion
+    var timeConverted = moment(trainTime, "HH:mm");
+    console.log(timeConverted);
+// Current time
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 });
