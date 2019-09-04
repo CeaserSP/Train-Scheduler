@@ -10,10 +10,10 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
 var database = firebase.database();
+
 // Click event
-$("#add-train-btn").on("click", function(event) {
+$("#add-train-btn").on("click", function (event) {
     event.preventDefault();
     // Input
     var trainName = $("#train-name-input").val().trim();
@@ -28,27 +28,49 @@ $("#add-train-btn").on("click", function(event) {
         time: trainTime,
         frequency: trainFrequency,
     }
+
     // push to the database
     database.ref().push(newTrain);
     console.log(newTrain);
+
     // Clear values
     $("train-name-input").val("");
     $("destination-input").val("");
     $("train-input").val("");
     $("frequency-input").val("");
 });
+
 // event listener that adds train to database and html
-database.ref().on("child_added", function(childSnapshot) {
+database.ref().on("child_added", function (childSnapshot) {
     console.log(childSnapshot.val());
+
     // Store childSnapshots into variables
     var trainName = childSnapshot.val().name;
     var trainDestination = childSnapshot.val().destination;
     var trainTime = childSnapshot.val().time;
     var trainFrequency = childSnapshot.val().frequency;
+
     // train time converstion
     var timeConverted = moment(trainTime, "HH:mm");
     console.log(timeConverted);
-// Current time
+
+    // Current time
     var currentTime = moment();
     console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+    // Difference between times
+    var difTime = moment().diff(moment(timeConverted), "minutes");
+    console.log("DIFFERENCE IN TIME: " + difTime);
+
+    // Time apart (remainder)
+    var timeApart = difTime % trainFrequency;
+    console.log(timeApart);
+
+    // Minute Until Train
+    var tMinusTrain = trainFrequency - timeApart;
+    console.log("MINUTES TILL TRAIN: " + tMinusTrain);
+
+    // Next Train
+    var nextTrain = moment().add(tMinusTrain, "minutes");
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 });
